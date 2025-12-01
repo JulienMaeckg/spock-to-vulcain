@@ -60,7 +60,7 @@
       const code = codeInput.value;
       
       // Affiche les informations transmises
-      status.textContent = `Informations transmises à Vulcain : ID="${id}", KEY="${key}", CODE="${code}"`;
+      status.innerHTML = `Informations transmises à Vulcain :<br>ID="${id}", KEY="${key}", CODE="${code}"`;
       
       // Ouvre l'application avec les paramètres
       window.location.href = `monapp://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
@@ -69,6 +69,7 @@
 </body>
 
 </html>
+
 
 
 
