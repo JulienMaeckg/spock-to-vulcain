@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SPOCK</title>
+  <style>
+    :root{--bg:#f7f7f8;--card:#fff;--accent:#0b5fff;--text:#222;--muted:#666;--border:#ddd}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:2rem}
+    .card{background:var(--card);width:100%;max-width:800px;border-radius:12px;box-shadow:0 6px 24px rgba(20,20,30,0.06);padding:3rem}
+    h1{font-size:3rem;font-weight:700;margin:0 0 2rem 0;text-align:center;color:var(--text)}
+    .inputs{display:flex;gap:1rem;margin-bottom:2rem}
+    .input-group{flex:1}
+    .input-group label{display:block;font-weight:600;margin-bottom:0.5rem;color:var(--text);font-size:0.9rem}
+    .input-group input{width:100%;padding:0.75rem;border:2px solid var(--border);border-radius:8px;font-size:1rem;box-sizing:border-box}
+    .input-group input:focus{outline:none;border-color:var(--accent)}
+    .btn{display:block;width:100%;padding:1rem;border:none;border-radius:8px;background:var(--accent);color:white;font-size:1.1rem;font-weight:600;cursor:pointer;transition:transform 0.1s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:active{transform:translateY(0)}
+    .status{margin-top:2rem;padding:1rem;background:#f0f9ff;border-left:4px solid var(--accent);border-radius:4px;color:var(--text);line-height:1.6;min-height:20px}
+    .status:empty{display:none}
+    @media (max-width:640px){.card{padding:1.5rem}h1{font-size:2rem}}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>SPOCK</h1>
+    
+    <div class="inputs">
+      <div class="input-group">
+        <label for="id">ID</label>
+        <input type="text" id="id" value="3353">
+      </div>
+      <div class="input-group">
+        <label for="key">KEY</label>
+        <input type="text" id="key" value="TI1ZGRmZjY4ZDc1Y2EwZTI">
+      </div>
+      <div class="input-group">
+        <label for="code">CODE</label>
+        <input type="text" id="code" value="ADD9S7">
+      </div>
+    </div>
+    
+    <button class="btn" id="openBtn">OUVRIR VULCAIN</button>
+    
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('openBtn');
+    const status = document.getElementById('status');
+    const idInput = document.getElementById('id');
+    const keyInput = document.getElementById('key');
+    const codeInput = document.getElementById('code');
+
+    btn.addEventListener('click', () => {
+      const id = idInput.value;
+      const key = keyInput.value;
+      const code = codeInput.value;
+      
+      // Affiche les informations transmises
+      status.textContent = `✓ Informations transmises à Vulcain : ID="${id}", KEY="${key}", CODE="${code}"`;
+      
+      // Ouvre l'application avec les paramètres
+      window.location.href = `monapp://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
+    });
+  </script>
+</body>
+</html>
