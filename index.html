@@ -25,7 +25,7 @@
 </head>
 <body>
   <div class="card">
-    <h1>SPOCK</h1>
+    <h1>SPOCK TO VULCAIN 2</h1>
     
     <div class="inputs">
       <div class="input-group">
@@ -60,7 +60,7 @@
       const code = codeInput.value;
       
       // Affiche les informations transmises
-      status.textContent = `✓ Informations transmises à Vulcain : ID="${id}", KEY="${key}", CODE="${code}"`;
+      status.textContent = `Informations transmises à Vulcain : ID="${id}", KEY="${key}", CODE="${code}"`;
       
       // Ouvre l'application avec les paramètres
       window.location.href = `monapp://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
@@ -69,4 +69,5 @@
 </body>
 
 </html>
+
 
