@@ -19,6 +19,7 @@
     .btn:hover{transform:translateY(-2px)}
     .btn:active{transform:translateY(0)}
     .status{margin-top:2rem;padding:1rem;background:#f0f9ff;border-left:4px solid var(--accent);border-radius:4px;color:var(--text);line-height:1.6;min-height:20px}
+    .status.error{background:#fff0f0;border-left:4px solid #ff4d4f} /* Nouvelle classe pour le message d'erreur */
     .status:empty{display:none}
     @media (max-width:640px){.card{padding:1.5rem}h1{font-size:2rem}}
   </style>
@@ -54,7 +55,28 @@
     const keyInput = document.getElementById('key');
     const codeInput = document.getElementById('code');
 
+    /**
+     * Vérifie si l'utilisateur est sur Android en se basant sur l'User Agent.
+     */
+    function isAndroid() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      // On vérifie la présence de "Android" ou "Adr" (pour certains navigateurs) dans l'User Agent.
+      return /android|adr/i.test(userAgent);
+    }
+
     btn.addEventListener('click', () => {
+      // Efface le statut précédent et retire la classe d'erreur
+      status.innerHTML = '';
+      status.classList.remove('error');
+
+      if (!isAndroid()) {
+        // Afficher le message d'erreur si ce n'est PAS Android
+        status.innerHTML = `**Action impossible :**<br>Vous n'êtes pas sur un appareil Androidé`;
+        status.classList.add('error'); // Ajoute la classe d'erreur pour le style
+        return; // Arrête l'exécution ici
+      }
+
+      // CODE ORIGINAL : Exécuté seulement si c'est Android
       const id = idInput.value;
       const key = keyInput.value;
       const code = codeInput.value;
@@ -69,7 +91,3 @@
 </body>
 
 </html>
-
-
-
-
