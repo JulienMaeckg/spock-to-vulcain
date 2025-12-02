@@ -85,9 +85,10 @@
       status.innerHTML = `Informations transmises à Vulcain :<br>ID="${id}", KEY="${key}", CODE="${code}"`;
       
       // Ouvre l'application avec les paramètres
-      window.location.href = `monapp://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
+      window.location.href = `vulcainpmi://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
     });
   </script>
 </body>
 
 </html>
+
