@@ -37,10 +37,6 @@
         <label for="key">KEY</label>
         <input type="text" id="key" value="mQ3NWU5ZWY2ZDdlZjQzYTE">
       </div>
-      <div class="input-group">
-        <label for="code">CODE</label>
-        <input type="text" id="code" value="ADD9S7">
-      </div>
     </div>
     
     <button class="btn" id="openBtn">OUVRIR VULCAIN</button>
@@ -53,7 +49,6 @@
     const status = document.getElementById('status');
     const idInput = document.getElementById('id');
     const keyInput = document.getElementById('key');
-    const codeInput = document.getElementById('code');
 
     /**
      * Vérifie si l'utilisateur est sur Android en se basant sur l'User Agent.
@@ -79,17 +74,14 @@
       // CODE ORIGINAL : Exécuté seulement si c'est Android
       const id = idInput.value;
       const key = keyInput.value;
-      const code = codeInput.value;
       
       // Affiche les informations transmises
-      status.innerHTML = `Informations transmises à Vulcain :<br>ID="${id}", KEY="${key}", CODE="${code}"`;
+      status.innerHTML = `Informations transmises à Vulcain :<br>ID="${id}", KEY="${key}""`;
       
       // Ouvre l'application avec les paramètres
-      window.location.href = `vulcainpmi://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}&code=${encodeURIComponent(code)}`;
+      window.location.href = `vulcainpmi://ouvrir?data=HELLO&id=${encodeURIComponent(id)}&key=${encodeURIComponent(key)}`;
     });
   </script>
 </body>
 
 </html>
-
-
